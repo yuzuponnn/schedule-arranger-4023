@@ -3,7 +3,6 @@ extends layout
 block content
   h3 予定の編集
   form(method="post", action="/schedules/#{schedule.scheduleId}?edit=1")
-    input(type="hidden" name="scheduleId" value="#{schedule.scheduleId}")
     div(class="form-group")
       label(for="scheduleName") 予定名
       input(id="scheduleName" class="form-control" type="text" name="scheduleName" value="#{schedule.scheduleName}")
