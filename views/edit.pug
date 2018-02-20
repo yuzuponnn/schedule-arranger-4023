@@ -3,13 +3,13 @@ extends layout
 block content
   h3 予定の編集
   form(method="post", action="/schedules/#{schedule.scheduleId}?edit=1")
-    div(class="form-group")
+    div.form-group
       label(for="scheduleName") 予定名
       input(id="scheduleName" class="form-control" type="text" name="scheduleName" value="#{schedule.scheduleName}")
-    div(class="form-group")
+    div.form-group
       label(for="memo") メモ
       textarea(id="memo" class="form-control" name="memo") #{schedule.memo}
-    div(class="form-group")
+    div.form-group
       label 既存の日程候補
       ul(class="list-group")
         each candidate in candidates
