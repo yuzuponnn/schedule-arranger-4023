@@ -1,7 +1,7 @@
 'use strict';
 const {sequelize, DataTypes} = require('./sequelize-loader');
 
-cconst Candidate = sequelize.define(
+const Candidate = sequelize.define(
   'candidates',
   {
     candidateId: {
