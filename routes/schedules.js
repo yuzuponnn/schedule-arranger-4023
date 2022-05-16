@@ -37,12 +37,12 @@ router.get('/:scheduleId', authenticationEnsurer, async (req, res, next) => {
       scheduleId: req.params.scheduleId
     },
     order: [['updatedAt', 'DESC']]
-  })
+  });
   if (schedule) {
     const candidates = await Candidate.findAll({
       where: { scheduleId: schedule.scheduleId },
       order: [['candidateId', 'ASC']]
-    })
+    });
     // データベースからその予定の全ての出欠を取得する
     const availabilities = await Availability.findAll({
       include: [
@@ -116,12 +116,12 @@ router.get('/:scheduleId/edit', authenticationEnsurer, async (req, res, next) =>
     where: {
       scheduleId: req.params.scheduleId
     }
-  })
+  });
   if (isMine(req, schedule)) { // 作成者のみが編集フォームを開ける
     const candidates = await Candidate.findAll({
       where: { scheduleId: schedule.scheduleId },
       order: [['candidateId', 'ASC']]
-    })
+    });
     res.render('edit', {
       user: req.user,
       schedule: schedule,
